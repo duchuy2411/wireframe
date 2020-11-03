@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+	width: 100%;
+	padding: 0 15px;
+	background-color: white;
+}
+
+
+#search {
+	background-color: white;
+	width: 15%;
+	height: 100vh;
+	float: left;
+	padding: 13px 15px;
+	border: 1px solid rgb(207, 203, 203);
+	
+}
+
+#content {
+	float: right;
+	background-color: whitesmoke;
+	width: 85%;
+	height: 100vh;
+	padding: 28px 250px;
+}
+
+#body {
+	height: auto;
+	padding: 0;
+}
+
+#body p {
+	color: rgb(0, 0, 0);
+}
+
+#search .lbl-search-inp {
+	font-size: 12px;
+	margin: 5px 0 0 0;
+}
+
+#search #select-cus {
+	background-color: white;
+	border: none;
+	outline: none;
+}
+
+.head-content {
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.inp-button {
+	border-style: none none solid none;
+	width: 100%;
+	margin: 0px auto;
+	background-color: white;
+	padding: 7px 0px 10px 0px;
+	font-size: 16px;
+}
+
+.container-tag {
+	margin: 11px 0 0 0;
+}
+
+.tag-pill {
+	background-color:#1867C0;
+	border-radius: 10px;
+	color: white;
+	padding: 5px 10px;
+	margin: 2px 0px 0px 1px;
+	font-size: 13px;
+	display: inline-block;
+	margin: 3px 0px;
+}
+
+.btn-blue {
+	text-align: center;
+	color: white;
+	margin: 5px 0;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 14px;
+	border: none;
+	height:36px;
+	background-color: #1867C0;
+	cursor: pointer;
+}
+
+.btn-primary {
+	text-align: center;
+	color: black;
+	margin: 5px 0;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 14px;
+	border: none;
+	height:23px;
+	background-color: #ffffff;
+	border: 1px solid gainsboro;
+	cursor: pointer;
+}
+
+.btn-del {
+	text-align: center;
+	color: white;
+	margin: 5px 0;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 14px;
+	border: none;
+	height:23px;
+	background-color: #F44336;
+	cursor: pointer;
+}
+
+.table-emp {
+	width: 100%;
+	min-width: 600px;
+	border-collapse: collapse;
+	/* border: 1px solid rgb(80, 79, 79); */
+}
+
+.table-emp tr:nth-child(even){background-color: gainsboro;}
+
+.table-emp td{
+	margin: 0;
+	padding: 5px 10px;
+
+}
+.table-emp th{
+	padding: 18px 0px 16px 10px;
+	text-align: left;
+}
+.table-emp tr {
+	margin: 0;
+	border: 1px solid rgb(177, 177, 177);
+}
+
+#text-mount-res {
+	font-size: 12px;
+	align-self:flex-end;
+}
+
+#btn-new-emp {
+	max-width: 120px;
+	align-self: flex-end;
+}
+
+#tb-id {
+	width: 3%;
+}
+
+#tb-actions {
+	width: 13%;
+}
+
+#tb-skills {
+	width: 28%;
+}
+
+#tb-img {
+	width: 6%;
+}
+
+#tb-staff {
+	width: 10%;
+}
+
+#tb-office {
+	width: 8%;
+}
+
+#overview {
+	font-size: 12px;
+}
+
+#name-emp {
+	font-size: 16px;
+}
+
+.tb-row-skill {
+	font-size: 12px;
+	margin: 5px auto;
+}
+
+.tb-row-img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+
+.tb-row-size {
+	font-size: 13px;
+}
+
+.tb-row-skill span {
+	display: inline-block;
+	width: 30%;
+}
+
+#btn-focus {
+	height: 1px;
+	padding: 0px;
+}
+
+#btn-focus:focus {
+	margin: 15px 0 0 0;
+	height: 20px;
+}
+
+.icon-close:hover{
+	cursor: pointer;
+
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="body">	
+		<div id="header" class="only_pc">
+			<img width="156px" height="60px" src="https://s3-alpha-sig.figma.com/img/834d/02a6/eeb68ac3d5e37f9b426cf9db3e8ab2cb?Expires=1605484800&Signature=cP8EXAZg85dVRWxilXWz8iqlcijpEiJUYTwrHJx~3ftVmtwKlZJzgAd7SW--bXD35vVo-~XGfIg6W4lalgVgWjO1vGUKcKaAbBW-8QDnnzAzIC9ikzCsyGBqjgqVlw9cLQO8ac2e1CNKWKIzoGBNnvRbtzKsdp39NsoOZMsoNRIKDvWpiuwW8yX5m9EqKnzhcYMGEbzxZTisi0-EaViVfFnYPRLApXAWdSdmfalbf82N37x-xVkmmV~Ioshdul7SCUEHK6udkNXxL53Qn1jJGoHb8SBd2R-d7T9nt3GsmS2ZNS03S907Q6Y0lEftrA96XqljbE2NH5Ddmiu89omDEg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+		</div>	
+		<div id="search" class="only_pc">
+			<p class="lbl-search-inp">Name</p>
+			<input class="inp-button" />
+			<p class="lbl-search-inp">Office</p>
+			<select class="inp-button" #id="select-cus"></select>
+			<p class="lbl-search-inp">Skills</p>
+			<div class="container-tag">
+				<span class="tag-pill">Java <i class="icon-close"><img src="./close-512.webp" width="10px" height="10px"></i></span>
+				<span class="tag-pill">Javascript</span>
+				<span class="tag-pill">Java and his good friends</span>
+			</div>
+			 
+			<input class="inp-button" id="btn-focus" />
+			<button class="btn-blue"> SEARCH </button>
+		</div>
+		<div id="content">
+			<div class="head-content">
+				<span id="text-mount-res">
+					Results: 10
+				</span>
+				<button class="btn-blue" id="btn-new-emp">New Employee</button>
+			</div>
+			<div>
+				<table class="table-emp">e
+					<tr>
+						<th id="tb-id">#</th>
+						<th id="tb-staff">Staff ID</th>
+						<th id="tb-office">Office</th>
+						<th id="tb-img"></th>
+						<th id="tb-name">Full Name</th>
+						<th id="tb-skills">Skills</th>
+						<th id="tb-actions">Actions</th>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Frontend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="tb-row-size" >1</td>
+						<td class="tb-row-size">2020041202</td>
+						<td class="tb-row-size">DAD</td>
+						<td> 
+							<img src="Avatar-mặc-định-nữ-có-màu.jpg" class="tb-row-img">
+						</td>
+						<td id="overview">
+							<span id="name-emp">
+								<strong>John Doe</strong>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur 
+								adipiscing elit, sed do eiusmod tempor 
+								....</p>
+						</td>
+						<td>
+							<div class="tb-row-skill">
+								<span><strong>Backend: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Front end: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span><strong>Database: </strong></span> Java, Spring, Python
+							</div>
+							<div class="tb-row-skill">
+								<span>...</span>
+							</div>
+						</td>
+						<td>
+							<button class="btn-primary">Edit</button>
+							<button class="btn-del">Delete</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>	
+</html>
