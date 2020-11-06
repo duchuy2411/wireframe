@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+
 body {
 	margin: 0;
 	padding: 0;
@@ -22,21 +23,21 @@ body {
 	height: 100vh;
 	float: left;
 	padding: 13px 15px;
-	border: 1px solid rgb(207, 203, 203);
+	/* border:  solid rgb(207, 203, 203); */
+    border-top: 1px solid gainsboro;
 	
 }
 
-#content {
+.content {
 	float: right;
 	background-color: gainsboro;
 	width: 85%;
-	height: 100vh;
 }
 
-#body {
+/* #body {
 	height: auto;
 	padding: 0;
-}
+} */
 
 #body p {
 	color: rgb(0, 0, 0);
@@ -47,7 +48,7 @@ body {
 	margin: 5px 0 0 0;
 }
 
-#search #select-cus {
+#search .select-cus {
 	background-color: white;
 }
 
@@ -108,39 +109,47 @@ body {
 	cursor: pointer;
 }
 
-#lbl-history {
+.lbl-history {
     font-weight: bold;
 }
 
-#box-revision {
+.box-revision {
     margin-top: 10px;
     font-size: 12px;
     display: flex;
     justify-content: space-between;
 }
 
-#box-revision #revision-time {
+.box-revision .revision-time {
     font-size: 12px;
     color: gainsboro;
 }
 
-#box-revision i {
+.box-revision i {
     align-self: center;
 }
 
-#btn-restore {
+.btn-restore {
     width: 47%;
     padding: 5px 15px;
     margin: 3px 3px;
+    height: 36px;
+    border-radius: 5px;
+    border-color: #1867C0;
+    color: white;
+    background-color: #1867C0;
+    cursor: pointer;
 }
 
-#btn-review {
+.btn-review {
     color: #1867C0;
     border: 1px solid #1867C0;
     width: 47%;
     height: 36px;
     padding: 5px 15px;
     border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
 }
 
 
@@ -149,7 +158,7 @@ body {
 }
 
 
-#content #container-content {
+.content .container-content {
     padding: 27px 278px;
     width: 100%;
     display: flex;
@@ -157,38 +166,38 @@ body {
     flex-direction: column;
 }
 
-#btn-spin {
+.btn-spin {
     min-width: 280px;
     display: flex;
     background-color: #ffffff;
     justify-content: space-between;
     padding: 5px 1px;
-    border-radius: 20px;
+    border-radius: 50px;
 }
 
-#btn-spin div{
-    border-radius: 20px;
+.btn-spin div{
+    border-radius: 29px;
     padding: 10px 30px;
     margin: 0 5px;
-    border: 1px solid #1867C0;
+    /* border: 1px solid #1867C0; */
     cursor: pointer;
 }
 
-#edit {
+.edit {
     color: white;
     background-color: #1867C0;
 }
 
-#preview {
+.preview {
     color: #1867C0;
 }
 
-#csv {
+.csv {
     margin-top: 70px;
     align-self: flex-end;
 }
 
-#csv button {
+.csv button {
     padding: 10px 30px;
     border-radius: 5px;
     border: 1px solid #1867C0;
@@ -197,151 +206,368 @@ body {
     cursor: pointer;
 }
 
-#container-editor {
+.container-editor {
     margin: 10px 0;
     background-color: gainsboro;
-    height: 100vh;
     width: 100%;
 }
 
-#row {
+.row {
     display: block;
 }
 
-#btn-edit {
+.btn-edit {
     color: #1867C0;
 }
 
-td img {
-    border-radius: 50%;
-    float: left;
-}
-
-.section {
+#section {
     background-color: white;
     border-radius: 5px;
     margin: 14px 0 0 0;
-    padding: 10px;
 }
 
 table {
     width: 100%;
 }
 
-.left-table {
-    width: 70%;
-    text-align: left;
+#section .row-section{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gainsboro;
 }
 
-.right-table {
+.section-left {
+    max-width: 90%;
+}
+
+.section-right {
+    display: flex;
+}
+
+.section-right {
+    justify-content: flex-end;
+    align-items: center;
     text-align: right;
 }
 
-#info-profile {
-    float:left;
+.section-right div {
+    margin: 0 15px 0 0;
+    width: 30px;
+}
+
+.section-left img{
+    float: left;
+    border-radius: 50%;
+}
+
+.row-section {
+    padding: 15px;
+    margin: 0px;
+}
+
+.profile-detail {
+    float: left;
+    margin: 0px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 5px;
+    height: 100%;
+}
+
+.profile-detail .lbl-info {
+    font-size: 13px;
+    margin: 3px 0 0 0;
+}
+
+.profile-detail div strong {
+    font-size: 18px;
+}
+
+.lbl-edit {
+    color:#1867C0;
+    cursor: pointer;
+}
+
+.lbl-delete {
+    color: #F44336;
+    cursor: pointer;
+}
+
+.btn-arrow {
+    color: #1867C0;
+    min-width: 25px;
+    min-height: 25px;
+    border: 1px solid #1867C0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-arrow img{
+    color: #1867C0;
+    width: 15px;
+    height: 15px;
+    outline-color: #1867C0;
+}
+
+#margin-right-lbl {
+    width: 55px;
+    margin-right: 0px;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+hr {
+    border: 0.5px solid gainsboro;
+    margin: 0;
 }
 </style>
 </head>
 <body>
-	<div id="body">	
+	<div id="body">
+
 		<div id="header" class="only_pc">
 			<img width="156px" height="60px" src="https://s3-alpha-sig.figma.com/img/834d/02a6/eeb68ac3d5e37f9b426cf9db3e8ab2cb?Expires=1605484800&Signature=cP8EXAZg85dVRWxilXWz8iqlcijpEiJUYTwrHJx~3ftVmtwKlZJzgAd7SW--bXD35vVo-~XGfIg6W4lalgVgWjO1vGUKcKaAbBW-8QDnnzAzIC9ikzCsyGBqjgqVlw9cLQO8ac2e1CNKWKIzoGBNnvRbtzKsdp39NsoOZMsoNRIKDvWpiuwW8yX5m9EqKnzhcYMGEbzxZTisi0-EaViVfFnYPRLApXAWdSdmfalbf82N37x-xVkmmV~Ioshdul7SCUEHK6udkNXxL53Qn1jJGoHb8SBd2R-d7T9nt3GsmS2ZNS03S907Q6Y0lEftrA96XqljbE2NH5Ddmiu89omDEg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
-		</div>	
-		<div id="search" class="only_pc">
-            <div id="lbl-history">HISTORY REVISION</div>
-            <div id="container-revision">
-            <div id="box-revision">
+        </div>
+
+        <div id="search">
+            <div><strong>HISTORY REVISION</strong></div>
+            
+            <div class="box-revision">
+                
                 <div>
                     <div><strong>Untitled Revision</strong></div>
-                    <div id="revision-time">20 minutes ago</div>
+                    <div class="revision-time">20 minutes ago</div>
                 </div>
-                <i><img width="15px" height="15px" src="./close-512.webp"></i>
+                <i><img wclassth="15px" height="15px" src="./close-512.webp"></i>
             </div>
             <div>
-                <button id="btn-review">REVIEW</button>
-                <button id="btn-restore" class="btn-blue">RESTORE</button>
-            </div>
-            </div>
-            <div id="container-revision">
-                <div id="box-revision">
+                <button class="btn-review">REVIEW</button>
+                <button class="btn-restore" class="btn-blue">RESTORE</button>
+            </div> 
+            
+            <div class="container-revision">
+                <div class="box-revision">
                     <div>
                         <div><strong>Untitled Revision</strong></div>
-                        <div id="revision-time">20 minutes ago</div>
+                        <div class="revision-time">20 minutes ago</div>
                     </div>
-                    <i><img width="15px" height="15px" src="./close-512.webp"></i>
+                    <i><img wclassth="15px" height="15px" src="./close-512.webp"></i>
                 </div>
                 </div>
-                <div id="container-revision">
-                    <div id="box-revision">
+                <div class="container-revision">
+                    <div class="box-revision">
                         <div>
                             <div><strong>Untitled Revision</strong></div>
-                            <div id="revision-time">20 minutes ago</div>
+                            <div class="revision-time">20 minutes ago</div>
                         </div>
-                        <i><img width="15px" height="15px" src="./close-512.webp"></i>
+                        <i><img wclassth="15px" height="15px" src="./close-512.webp"></i>
                     </div>
                 </div>
-         </div>
+            </div>
            
-		<div id="content">
-			<div id="container-content">
-                <div id="btn-spin">
-                    <div id="edit">EDITOR</div>
-                    <div id="preview">PREVIEW</div>
+		<div class="content">
+            
+            <div class="container-content">
+                
+                <div class="btn-spin">
+                    <div class="edit">EDITOR</div>
+                    <div class="preview">PREVIEW</div>
                 </div>
-                <div id="csv">
+                
+                <div class="csv">
                     <button>IMPORT FROM CSV</button>
                     <button>DOWNLOAD PDF</button>
                 </div>
-                <div id="container-editor">
+                
+                <div class="container-editor">
+
                     <!-- PROFILEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
-                    <div id="profile-ed" class="section">
-                       <table>
-                           <tr>
-                               <th class="left-table">Profile</th>
-                               <th class="right-table">Edit</th>
-                           </tr>
-                           <tr>
-                               <td>
-                                   <img src="./Avatar-mặc-định-nữ-có-màu.jpg" width="70px" height="70px">
-                                   <div id="info-profile">
-                                        <div>John Doe</div>
-                                        <div>DAD</div>
-                                        <div>Email: bkdsjkgl@gmail.com</div>
-                                   </div>
-                               </td>
-                           </tr>
-                       </table>
-                    </div>
-                    <!-- OVERVIEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW -->
-                    <div id="overview-ed" class="section">
-                        <div id="row">
-                            <div>Professional Overview</div>
-                            <div>Edit</div>
+                    <div class="profile-ed"  id="section">
+                        <div class="row-section">
+                            <div class="section-left">
+                                <strong>Profile</strong>
+                            </div>
+                            <dv class="section-right">
+                                <div class="lbl-edit">Edit</div>
+                           </dv>    
                         </div>
-                        <div id="row">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                        <div class="row-section">
+                            <div class="section-left">
+                                <img src="./Avatar-mặc-định-nữ-có-màu.jpg" wclassth="70xp" height="70px">
+                                <div class="profile-detail">
+                                    <div>
+                                        <strong>John Doe</strong>
+                                    </div>
+                                    <div class="lbl-info">
+                                        DAD
+                                    </div>
+                                    <div class="lbl-info">
+                                        Email: <a href="#">doejohn@abc.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-right"></div>    
                         </div>
                     </div>
 
-                    <div id="workhistory-ed" class="section">
-                        <div id="row">
-                            <div>Work History</div>
-                            <div id="btn-down"></div>
-                            <div>Add</div>
-                            <hr />
+                    <!-- OVERVIEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW -->
+                    <div class="overview-ed" id="section">
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div><strong>Professional Overview</strong></div>
+                            </div>
+                            <div class="section-right">
+                                <div class="lbl-edit" id="margin-right-lbl">Edit</div>
+                            </div> 
                         </div>
-                        <div id="row">
-                            <div>
+
+                        <div class="row-section">
+                            <div class="section-left" >
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incclassclassunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupclassatat non proclassent, sunt in culpa qui officia deserunt mollit anim class est laborum
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ===================== Work History ================================= -->
+                    <div class="workhistory-ed" id="section">
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div><strong>Work History</strong></div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit" id="margin-right-lbl">Add</div>
+                            </div>
+                        </div>
+
+                        <div class="row-section">
+                            <div class="section-left">
                                 <div>Senior Developer</div>
                                 <div>Hybrid Technologies (Now -  Feb 2019)</div>
                             </div>
-                            <div id="btn-down"></div>
-                            <div>EDIT</div>
-                            <div>DELETE</div>
+                            <div class="section-right">
+                                <div class="btn-arrow invisible">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
+                        </div>
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div>Senior Developer</div>
+                                <div>Hybrclass Technologies (Now -  Feb 2019)</div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
+                        </div>
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div>Senior Developer</div>
+                                <div>Hybrclass Technologies (Now -  Feb 2019)</div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow invisible">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==== -->
+                    <div class="workhistory-ed" id="section">
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div><strong>Skills</strong></div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow invisible">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit" id="margin-right-lbl">Add</div>
+                            </div>
+                        </div>
+                        
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div><strong>Backend</strong></div>
+                                <div>Java, Python</div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow invisible">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
+                        </div>
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div>Senior Developer</div>
+                                <div>Hybrclass Technologies (Now -  Feb 2019)</div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
+                        </div>
+
+                        <div class="row-section">
+                            <div class="section-left">
+                                <div>Senior Developer</div>
+                                <div>Hybrclass Technologies (Now -  Feb 2019)</div>
+                            </div>
+                            <div class="section-right">
+                                <div class="btn-arrow">
+                                    <img src="./icons8-up-arrow-50.png">
+                                </div>
+                                <div class="btn-arrow invisible">
+                                    <img src="./icons8-down-arrow-50.png">
+                                </div>
+                                <div class="lbl-edit">EDIT</div>
+                                <div class="lbl-delete" id="margin-right-lbl">DELETE</div>
+                            </div>
                         </div>
                     </div>
 
